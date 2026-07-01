@@ -48,11 +48,12 @@ h1{
     color: #2C3E43; }
 
 .pagina2 .row{
-    display: flex;
+    display: grid;
+    grid-template-columns: 0.8fr 1fr 1fr 1fr;
     justify-content: space-around;
-    background-color: #ffffff;
-    padding: 5rem 0;
+    background-color: #ffffff;   
     gap: 25px;
+    padding: 25px;
 }
 
 .pagina2 .row > div > img{
@@ -68,7 +69,8 @@ h1{
     font-family: 'Courier New', Courier, monospace; 
 }
 .skills{
-    display: flex;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
     justify-content: space-around;
     align-items: center;
     border: 5px solid black;
