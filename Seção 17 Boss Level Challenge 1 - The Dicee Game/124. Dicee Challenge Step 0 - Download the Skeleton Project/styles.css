@@ -39,3 +39,10 @@ footer {
   font-family: 'Indie Flower', cursive;
 
 }
+.botao{
+  
+  font-size: 3.5rem;
+  border-radius: 10%;
+  color: green;
+  border:  yellow;
+}
