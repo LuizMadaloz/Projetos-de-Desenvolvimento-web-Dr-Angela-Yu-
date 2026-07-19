@@ -13,9 +13,8 @@ document.addEventListener("keydown", function(event){
              
             
             var botao = document.querySelectorAll(".drum")[i]; 
-            var corOriginal = botao.style.color;
             botao.style.color="white";
-            setTimeout(()=>{botao.style.color = corOriginal;},200);
+            setTimeout(()=>{botao.style.color = "#DA0463";},300);
             break
         }
 
