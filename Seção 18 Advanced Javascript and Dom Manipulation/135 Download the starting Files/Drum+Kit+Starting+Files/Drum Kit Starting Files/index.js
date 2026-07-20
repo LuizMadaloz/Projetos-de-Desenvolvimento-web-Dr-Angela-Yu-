@@ -12,9 +12,7 @@ document.addEventListener("keydown", function(event){
             audio.play();
              
             
-            var botao = document.querySelectorAll(".drum")[i]; 
-            botao.style.color="white";
-            setTimeout(()=>{botao.style.color = "#DA0463";},300);
+           trocaDeCor (i);
             break
         }
 
@@ -22,7 +20,21 @@ document.addEventListener("keydown", function(event){
         };
 
 });
-   
+   document.addEventListener("click", function(event){
+    var botaoApertado = event.target.innerText.toLowerCase();
+    for (let i = 0 ; i <qtdBotoes; i++){
+        if(listaTeclas[i] === botaoApertado ){
+             var audio = new Audio('./sounds/' + listaSons[i] + '.mp3');
+            audio.play();
+            trocaDeCor (i);
+            break
+        }
+    }
+   })
 
-    
+    function trocaDeCor (i){
+         var botao = document.querySelectorAll(".drum")[i]; 
+            botao.style.color="white";
+            setTimeout(()=>{botao.style.color = "#DA0463";},300);
 
+    }
