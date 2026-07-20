@@ -35,6 +35,7 @@ document.addEventListener("keydown", function(event){
     function trocaDeCor (i){
          var botao = document.querySelectorAll(".drum")[i]; 
             botao.style.color="white";
-            setTimeout(()=>{botao.style.color = "#DA0463";},300);
+            botao.classList.add("pressed");
+            setTimeout(()=>{botao.style.color = "#DA0463"; botao.classList.remove("pressed")},300);
 
     }
