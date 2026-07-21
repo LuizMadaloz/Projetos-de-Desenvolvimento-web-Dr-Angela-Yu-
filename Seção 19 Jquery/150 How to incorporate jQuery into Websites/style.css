@@ -1,1 +1,10 @@
-*{background-color: red;}
+*{background-color: gray;}
+
+
+.fundoAmarelo{
+    background-color: yellow;
+}
+
+.fundoAzul{
+    background-color: blue;
+}
