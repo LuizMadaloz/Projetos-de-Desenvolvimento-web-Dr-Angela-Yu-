@@ -1,40 +1,26 @@
 let gamePattern =[];
 let userClickedPattern = [];
+let level = 0;
+let trava = false
 
 function nextSequence(){
-    const colores =['green', 'red', 'yellow', 'bluw'];
+    userClickedPattern = [];
+    $('h1').text('level '+ level);
+    level +=1;
+    const colores =['green', 'red', 'yellow', 'blue'];
     let numberRandom = Math.floor(Math.random() * 4);
     gamePattern.push(colores[numberRandom]);
-    //return playSound(colores[numberRandom]);
+    playSound(colores[numberRandom]);
+    
+
+    
 };
 
-const buttonColours =["green", "red", "yellow", "blue" ];
-
-let randomChosenColour = buttonColours[nextSequence()];
-
-gamePattern.push(randomChosenColour);
-
 function playSound(name){
-    if (name === 'green'){
-        let audio = new Audio("./sounds/green.mp3");
-     audio.play();
-     
   
-    }else if(name === 'red'){
-               let audio = new Audio("./sounds/red.mp3");
-    audio.play();
-   
+        let audio = new Audio("./sounds/" + name + ".mp3");
+     audio.play();
 
-    }else if(name === 'yellow'){
-        let audio = new Audio("./sounds/yellow.mp3");
-    audio.play();
-    
-
-    }else if (name === 'blue'){
-        let audio = new Audio("./sounds/blue.mp3");
-    audio.play();
-    
-    }
     $('#' + name).fadeTo(100, 0.33).fadeTo(100, 1);
     $('#' + name).addClass('pressed')
     let tempo = setTimeout(() => {
@@ -47,6 +33,37 @@ $('.btn').click(function(event){
      let userChosenColour = $(this).attr("id");
     userClickedPattern.push(userChosenColour);
      let idClick = this.id;
-    return playSound(idClick);
+    playSound(idClick);
+    checkAnswer(userClickedPattern.length - 1);
 })
+
+$(document).keypress(function(){
+    if(!trava){
+    nextSequence();}
+    trava = true;
+})
+
+function checkAnswer(currentLevel){
+    if (gamePattern[currentLevel] === userClickedPattern[currentLevel]){
+        if (gamePattern.length === userClickedPattern.length){
+            setTimeout (()=>{nextSequence();}, 500);
+        }
+    }else{
+        playSound("wrong");
+        $("h1").text("Game over");
+        setTimeout(() => {
+            $('h1').text('Game Over, Press Any Key to Restart');
+        }, 1000);
+        iniciar();
+
+    }
+
+} 
+
+function iniciar(){
+    gamePattern =[];
+    level = 0;
+    trava = false
+}
+
 
