@@ -12,3 +12,7 @@ let gerador = await input({ message: 'Qual o link para gerar o qr-code:  '} );
 let qr_svg = qr.image('https://' + gerador, { type: 'png' });
 qr_svg.pipe(fs.createWriteStream('meu_qrcode.png'));
 console.log('QR Code gerado e salvo como meu_qrcode.png!');
+fs.writeFile('URL.txt', gerador, (err) => {
+    if (err) throw err;
+    console.log('QR Code gerado e link salvo com sucesso!');
+});
