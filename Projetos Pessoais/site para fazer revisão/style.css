@@ -4,7 +4,29 @@ h1{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     
 }
+a{  
+    font-size: 35px;
+    font-family:'Times New Roman', Times, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: black;
+}
+
+.um{
+    background-color:  aqua;;
+}
 
 .colorH1{
-    color: blue;
+    color: red;
+}
+
+.level-0{
+    box-sizing: border-box;
+    height: 20rem;
+    margin-bottom: 0.2rem;
+    border: 5px solid #1a202c;
 }
