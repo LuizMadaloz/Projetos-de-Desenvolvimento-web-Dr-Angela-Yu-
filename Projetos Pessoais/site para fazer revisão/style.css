@@ -27,6 +27,6 @@ a{
 .level-0{
     box-sizing: border-box;
     height: 20rem;
-    margin-bottom: 0.2rem;
+    padding: 0.2rem;
     border: 5px solid #1a202c;
 }
