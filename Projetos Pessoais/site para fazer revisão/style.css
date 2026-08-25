@@ -14,6 +14,7 @@ a{
     height: 100%;
     text-decoration: none;
     color: black;
+    
 }
 
 .um{
@@ -27,6 +28,6 @@ a{
 .level-0{
     box-sizing: border-box;
     height: 20rem;
-    padding: 0.2rem;
-    border: 5px solid #1a202c;
+    border: 5px solid green;
+    margin: 5px;
 }
