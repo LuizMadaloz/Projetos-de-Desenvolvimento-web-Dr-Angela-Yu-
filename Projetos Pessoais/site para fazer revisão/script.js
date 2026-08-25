@@ -1,5 +1,5 @@
 const h1 = document.querySelector("h1");
-const a = document.querySelector("a");
+const a = document.querySelectorAll("a");
 
 h1.addEventListener("mouseover", function(){
     h1.classList.add('colorH1');
@@ -10,14 +10,13 @@ h1.addEventListener("mouseout", function(){
         h1.classList.remove('colorH1')
     },100);
 });
+a.forEach ((element)=>{
+    element.addEventListener("mouseover", function(){
+    element.classList.add('colorH1')});
 
-a.addEventListener("mouseover", function(){
-    a.classList.add('colorH1');
-  
-});
-a.addEventListener("mouseout", function(){
+    element.addEventListener("mouseout", function(){
       setTimeout(function(){
-        a.classList.remove('colorH1')
+        element.classList.remove('colorH1')
     },100);
+});    
 });
-
