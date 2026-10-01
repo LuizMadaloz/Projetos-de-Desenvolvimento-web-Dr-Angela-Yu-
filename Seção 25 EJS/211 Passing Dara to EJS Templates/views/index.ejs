@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Name Letters</title>
+</head>
+
+<body>
+  <% if (locals.numLetras) { %>
+    <h1>O número de letras no nome é  <%= numLetras %> .</h1>
+    <% } else { %>
+    <h1>Digite nome e sobrenome 👇</h1>
+    <% } %>
+  <form action="/submit" method="POST">
+    <input type="text" name="pNome" placeholder="Primeiro nome">
+    <input type="text" name="uNome" placeholder="Ultimo nome">
+    <input type="submit" value="OK">
+  </form>
+</body>
+
+</html>
