@@ -1,1 +1,14 @@
-<h1>Oi</h1>
+<%- include("partials/header.ejs") %>
+<form action="envioPost" method="POST">
+<label for="titulo">Titulo</label>
+<input type="text" id="titulo">
+<br>
+<label for="blogText">Escreva seu texto</label>
+<br>
+<textarea name="blogText" id="blogText" rows="100" cols="100"></textarea>
+
+<button type="submit">Enviar</button>
+
+</form>
+
+<%- include("partials/footer.ejs") %>
