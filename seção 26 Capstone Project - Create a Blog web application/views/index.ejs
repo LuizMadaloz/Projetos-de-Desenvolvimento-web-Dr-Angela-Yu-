@@ -1,14 +1,28 @@
 <%- include("partials/header.ejs") %>
-<form action="envioPost" method="POST">
-<label for="titulo">Titulo</label>
-<input type="text" id="titulo">
-<br>
-<label for="blogText">Escreva seu texto</label>
-<br>
-<textarea name="blogText" id="blogText" rows="100" cols="100"></textarea>
+<h1>Postagens</h1>
+<% if(locals.postagem){ %>
+   <%   postagem.forEach(posts => { %>
+        <h2>
+        <%= posts.titulo %>    
+        </h2>
+        <p>
+        <%= posts.conteudo %>
+            </p>
+            <p>
+        <%= posts.data %>
+        </p>
 
-<button type="submit">Enviar</button>
+        <% }); %>
+        
+   <% }else{ %>
+    <h2>
+     sem postagens
+    </h2>
+    <% }; %>
 
-</form>
+    
+    
+   
+    
 
 <%- include("partials/footer.ejs") %>
