@@ -23,6 +23,7 @@ app.get("/postar.ejs", (req,res)=>{
 
 app.post("/envioPost",(req,res)=>{
     const novoPost ={
+        id: Date.now(),
         titulo: req.body.titulo,
         conteudo: req.body.blogText,
         data: new Date().toLocaleDateString("PT-BR")
@@ -34,6 +35,14 @@ app.post("/envioPost",(req,res)=>{
     res.redirect("/");
 });
 
+app.post("/deletarPost", (req, res) => {
+    const idParaDeletar = Number(req.body.id); // Converte o ID recebido para número
+
+    // Filtra a lista mantendo apenas os posts que NÃO possuem esse ID
+    posts = posts.filter(post => post.id !== idParaDeletar);
+
+    res.redirect("/"); // Recarrega a página inicial atualizada
+});
 
 
 

@@ -7,26 +7,32 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
+    <div class="principal">
     <%- include("partials/header.ejs") %>
 <h1>Postagens</h1>
+<div class="postados">
 <% if(locals.postagem){ %>
-   <%   postagem.forEach(posts => { %>
-        <h2>
-        <%= posts.titulo %>    
-        </h2>
-        <p>
-        <%= posts.conteudo %>
-            </p>
-            <p>
-        <%= posts.data %>
-        </p>
+<% postagem.forEach(post => { %>
+    <div class="post">
+        <h2><%= post.titulo %></h2>
+        <p><%= post.conteudo %></p>
+        <small><%= post.data %></small>
 
-        <% }); %>
+        <!-- Formulário para apagar o post -->
+        <form action="/deletarPost" method="POST" style="margin-top: 10px;">
+            <!-- Campo escondido que armazena o ID deste post específico -->
+            <input type="hidden" name="id" value="<%= post.id %>">
+            <button type="submit" class="btn-deletar">Apagar Post</button>
+        </form>
+    </div>
+<% }) %>
         
    <% }else{ %>
     <h2>
      sem postagens
     </h2>
+
+    </div>
     <% }; %>
 
     
@@ -35,6 +41,7 @@
     
 
 <%- include("partials/footer.ejs") %>
+</div>
     
 </body>
 </html>
