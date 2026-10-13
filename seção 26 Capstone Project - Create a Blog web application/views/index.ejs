@@ -5,26 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
+
 </head>
 <body>
-    <div class="principal">
+    <div class="principal overflow-hidden">
     <%- include("partials/header.ejs") %>
-<h1>Postagens</h1>
-<div class="postados">
+    
+
+<div class=" container text-center">
+    <h1 class="my-4">Postagens</h1>
+
+        
+<div class="row justify-content-center">
 <% if(locals.postagem){ %>
 <% postagem.forEach(post => { %>
-    <div class="post">
+        <div class="md:col-4 col-12 posters">
+        <div class="card card-post p-3 h-100"> 
         <h2><%= post.titulo %></h2>
         <p><%= post.conteudo %></p>
         <small><%= post.data %></small>
 
-        <!-- Formulário para apagar o post -->
+        
         <form action="/deletarPost" method="POST" style="margin-top: 10px;">
-            <!-- Campo escondido que armazena o ID deste post específico -->
             <input type="hidden" name="id" value="<%= post.id %>">
             <button type="submit" class="btn-deletar">Apagar Post</button>
         </form>
-    </div>
+        </div>
+        </div>
+
+    
 <% }) %>
         
    <% }else{ %>
@@ -32,15 +42,21 @@
      sem postagens
     </h2>
 
-    </div>
+    
     <% }; %>
+    </div>
+    
+    
 
     
     
    
-    
+ </div>
 
 <%- include("partials/footer.ejs") %>
+
+
+
 </div>
     
 </body>
