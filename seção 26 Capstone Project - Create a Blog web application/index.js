@@ -22,15 +22,26 @@ app.get("/postar.ejs", (req,res)=>{
 });
 
 app.post("/envioPost",(req,res)=>{
-    const novoPost ={
+    const idFormulario = Number(req.body.id);
+    if(idFormulario){
+        const postOriginal = posts.find(post => post.id === idFormulario);
+        postOriginal.titulo = req.body.titulo;
+        postOriginal.conteudo = req.body.blogText;
+
+
+    }
+else{    const novoPost ={
         id: Date.now(),
         titulo: req.body.titulo,
         conteudo: req.body.blogText,
         data: new Date().toLocaleDateString("PT-BR")
 
+        
+};
+posts.push(novoPost);
     };
 
-    posts.push(novoPost);
+    
 
     res.redirect("/");
 });
@@ -43,6 +54,18 @@ app.post("/deletarPost", (req, res) => {
 
     res.redirect("/"); // Recarrega a página inicial atualizada
 });
+
+app.post("/editarPost", (req, res) => {
+    const idAlterar = Number(req.body.id);
+    const postEncontrado = posts.find(post => post.id == idAlterar);
+
+    if (!postEncontrado) {
+        return res.send("Post não encontrado!");
+    }
+
+    res.render("postar.ejs", { post: postEncontrado });
+});
+
 
 
 

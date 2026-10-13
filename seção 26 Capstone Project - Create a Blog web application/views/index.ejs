@@ -31,6 +31,11 @@
             <input type="hidden" name="id" value="<%= post.id %>">
             <button type="submit" class="btn-deletar">Apagar Post</button>
         </form>
+
+        <form action="/editarPost" method="POST" style="margin-top: 10px;">
+            <input type="hidden" name="id" value="<%= post.id %>">
+            <button type="submit" class="btn-deletar">Editar Post</button>
+        </form>
         </div>
         </div>
 

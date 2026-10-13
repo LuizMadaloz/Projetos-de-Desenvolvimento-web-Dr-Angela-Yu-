@@ -66,3 +66,12 @@ label{
     background-color: white;
     color: rgb(49, 5, 14);
 }
+
+.botao{
+    display: block;
+    font-size: 25px;
+    border-radius: 8px;
+    width: auto;
+    height: auto;
+    
+}

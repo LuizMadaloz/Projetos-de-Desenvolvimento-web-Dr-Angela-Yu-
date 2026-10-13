@@ -9,6 +9,7 @@
 
 </head>
 <body>
+    <div class="principal">
     <%- include("partials/header.ejs") %>
 <div class="container text-center md:container">
     
@@ -16,9 +17,12 @@
 <form action="envioPost" method="POST">
     <div class="row"></div>
     <div class="col-12 md:col-6 text-center"></div>
+     <% if (locals.post) { %>
+        <input type="hidden" name="id" value="<%= post.id %>">
+    <% } %>
 <label for="titulo">Titulo</label>
 <br>
-<input type="text" id="titulo" name="titulo">
+<input type="text" id="titulo" name="titulo" <% if (locals.post){ %> value= "<%= post.titulo %>" <% }; %>>
 <br>
 
 </div>
@@ -27,9 +31,14 @@
     <div class="md:col-8 col-12 text-center">
         <label for="blogText">Escreva seu texto</label>
         <br>
-<textarea name="blogText" id="blogText" rows="40" cols="100"></textarea>
+<textarea name="blogText" id="blogText" rows="15" cols="100" maxlength="1000"><% if(locals.post){ %><%= post.conteudo %> <% }; %></textarea>
 </div>
-<button type="submit">Enviar</button>
+<br>
+<div class="row justify-content-center">
+
+<button type="submit" class="botao">Enviar</button>
+
+</div>
 </div>
 
 </form>
@@ -37,6 +46,8 @@
 </div>
 
 <%- include("partials/footer.ejs") %>
+</div>
     
 </body>
 </html>
+
